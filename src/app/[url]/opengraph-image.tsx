@@ -1,6 +1,6 @@
-import { Code } from "@/components/Code";
 import { notFound } from "next/navigation";
 import { ImageResponse } from "next/og";
+import { QRCodeSVG } from "qrcode.react";
 
 export default async function Image({ params }: { params: { url: string } }) {
   const { url } = params;
@@ -27,7 +27,12 @@ export default async function Image({ params }: { params: { url: string } }) {
           backgroundColor: "#000",
         }}
       >
-        <Code url={encodedUrl} size={400} />
+        <QRCodeSVG
+          fgColor="white"
+          bgColor="black"
+          value={encodedUrl}
+          size={400}
+        />
       </div>
     ),
     {
