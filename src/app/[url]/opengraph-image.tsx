@@ -16,7 +16,25 @@ export default async function Image({ params }: { params: { url: string } }) {
   }
 
   return new ImageResponse(
-    <QRCodeSVG fgColor="white" bgColor="black" value={encodedUrl} size={400} />,
+    (
+      <div
+        style={{
+          display: "flex",
+          height: "100%",
+          width: "100%",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#000",
+        }}
+      >
+        <QRCodeSVG
+          fgColor="white"
+          bgColor="black"
+          value={encodedUrl}
+          size={400}
+        />
+      </div>
+    ),
     {
       width: 1200,
       height: 630,
