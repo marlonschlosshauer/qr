@@ -1,6 +1,6 @@
 "use client";
 
-import { useUrl } from "@/lib/useUrl";
+import { useUrl } from "@/lib/hooks/useUrl";
 import React from "react";
 
 export const Forge: React.FC = () => {

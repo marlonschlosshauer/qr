@@ -2,6 +2,7 @@ import { Copy } from "@/components/Copy";
 import { Forge } from "@/components/Forge";
 import { Hint } from "@/components/Hint";
 import { Mirror } from "@/components/Mirror";
+import { getURL } from "@/lib/url";
 import { SearchParams } from "@/types/app";
 import { Metadata, Viewport } from "next";
 import { Suspense } from "react";
@@ -16,9 +17,7 @@ export async function generateMetadata(props: { searchParams: SearchParams }) {
   const defaultMetadata: Metadata = {
     title: "Generate QR codes quickly.",
     description: "Paste your URL, hit enter and voila - your QR code is ready.",
-    metadataBase: new URL(
-      `${process.env.NEXT_PUBLIC_VERCEL_ENV === "production" ? "https://" : "http://"}${process.env.NEXT_PUBLIC_VERCEL_URL}`,
-    ),
+    metadataBase: new URL(getURL()),
     openGraph: {
       images: [
         {
@@ -57,7 +56,7 @@ export async function generateMetadata(props: { searchParams: SearchParams }) {
 
   return {
     ...defaultMetadata,
-    title: `QR: "${rawURL}""`,
+    title: `QR: ${rawURL}`,
     openGraph: {
       images: [
         { url: `/${encodedUrl}/opengraph-image`, width: 1200, height: 630 },

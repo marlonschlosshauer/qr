@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { Code } from "./Code";
-import { useUrl } from "@/lib/useUrl";
+import { useUrl } from "@/lib/hooks/useUrl";
 import { saveAs } from "file-saver";
 
 export const Mirror: React.FC = () => {

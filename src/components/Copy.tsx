@@ -1,6 +1,6 @@
 "use client";
 
-import { useUrl } from "@/lib/useUrl";
+import { useUrl } from "@/lib/hooks/useUrl";
 import React, { useEffect, useState } from "react";
 
 export const Copy: React.FC = () => {
