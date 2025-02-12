@@ -21,7 +21,11 @@ export async function generateMetadata(props: { searchParams: SearchParams }) {
     ),
     openGraph: {
       images: [
-        `/${encodeURIComponent(process.env.NEXT_PUBLIC_VERCEL_URL ?? "")}/opengraph-image`,
+        {
+          url: `/${encodeURIComponent(process.env.NEXT_PUBLIC_VERCEL_URL ?? "")}/opengraph-image`,
+          width: 1200,
+          height: 630,
+        },
       ],
     },
     alternates: {
@@ -55,7 +59,9 @@ export async function generateMetadata(props: { searchParams: SearchParams }) {
     ...defaultMetadata,
     title: `QR: "${rawURL}""`,
     openGraph: {
-      images: [`/${encodedUrl}/opengraph-image`],
+      images: [
+        { url: `/${encodedUrl}/opengraph-image`, width: 1200, height: 630 },
+      ],
     },
     robots: {
       index: false,
