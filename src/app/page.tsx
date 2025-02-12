@@ -16,7 +16,14 @@ export async function generateMetadata(props: { searchParams: SearchParams }) {
   const defaultMetadata: Metadata = {
     title: "Generate QR codes quickly.",
     description: "Paste your URL, hit enter and voila - your QR code is ready.",
-    metadataBase: new URL(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}`),
+    metadataBase: new URL(
+      `${process.env.NEXT_PUBLIC_VERCEL_ENV === "production" ? "https://" : "http://"}${process.env.NEXT_PUBLIC_VERCEL_URL}`,
+    ),
+    openGraph: {
+      images: [
+        `/${encodeURIComponent(process.env.NEXT_PUBLIC_VERCEL_URL ?? "")}/opengraph-image`,
+      ],
+    },
     alternates: {
       canonical: "/",
     },
